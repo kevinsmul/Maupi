@@ -17,7 +17,9 @@ $(document).ready(function() {
 
     //Filter menu
     $('.filterbar').find('.nav-item').click(function(){
+        var password = $(this).data('pass');
         var category = $('.menu-content').find('.menu-item.active > a').text();
+
         $('.nav-item').each(function(){
            $(this).removeClass('active');
         });
@@ -30,7 +32,7 @@ $(document).ready(function() {
         var filter = $('.navbar-nav').find('.active').attr('filter');
 
         if(filter !== 'ss') {
-            buildCodeBlocks(category, filter, folderName);
+            buildCodeBlocks(category, filter, folderName, password);
         }
         else{
             buildPreview(category, folderName);
@@ -49,6 +51,7 @@ $(document).ready(function() {
 
     //SideMenu Second level
     $('.menu-content').find('.sub-menu > li').click(function(){
+        var password = $(this).attr('data-pass');
         //Reset active class
         sideMenuresetActive();
 
@@ -59,7 +62,7 @@ $(document).ready(function() {
         var category = $('.menu-content').find('.menu-item.active > a').text();
 
         if(filter !== 'ss'){
-            buildCodeBlocks(category, filter, folderName);
+            buildCodeBlocks(category, filter, folderName, password);
         }
         else{
             buildPreview(category, folderName);
@@ -80,7 +83,11 @@ $(document).ready(function() {
 
         $('.menu-overview').removeClass('active');
     }
-    function buildCodeBlocks(category, filter,folderName){
+    function buildCodeBlocks(category, filter,folderName, password){
+        if (password.length > 0) {
+            return false;
+        }
+
         console.log('buildcodeblocks');
         console.log(jsonData);
         var data = jsonData[category][folderName];
