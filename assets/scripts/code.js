@@ -135,7 +135,6 @@ $(document).ready(function() {
                         $('.main-content').prepend('<div class="code-block-wrapper">' + scriptContent + '</div>');
                     }
                 }
-                markupCode();
             };
             httpRequest.open('GET', path);
             httpRequest.send();
@@ -144,7 +143,6 @@ $(document).ready(function() {
            $.get('code/' + folderName + fileType +'', function (data) {
                 var code = $('<div />').text(data).html();
                 $('.main-content').prepend('<div class="code-block-wrapper">' + code + '</div>');
-               markupCode();
            });
         }
 
@@ -200,3 +198,28 @@ $(document).ready(function() {
 
     init();
 });
+
+$(document).on('keyup', function(event){
+    var seleted = $('.seleted');
+    //down arrow
+    if(event.keyCode == 40){
+        var index = seleted.index();
+        if(index==5){
+            return;
+        }
+        seleted.removeClass('seleted').next().addClass('seleted');
+    }
+    //up arrow
+    if(event.keyCode == 38){
+        var index = seleted.index();
+        if(index==0){
+            return;
+        }
+        seleted.removeClass('seleted').prev().addClass('seleted');
+    }
+    //enter
+    if(event.keyCode == 13){
+        seleted.click();
+        $(".show").click();
+    }
+})
