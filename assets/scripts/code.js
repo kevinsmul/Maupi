@@ -121,7 +121,7 @@ $(document).ready(function() {
         var folderName = folderName;
         var fileType = fileType;
         var filter = filter;
-        var path = 'code/' + folderName + fileType +'';
+        var path = 'manuscript/' + folderName + fileType +'';
 
         if(filter == 'js')
         {
@@ -140,7 +140,7 @@ $(document).ready(function() {
             httpRequest.send();
         }
         else{
-           $.get('code/' + folderName + fileType +'', function (data) {
+           $.get('manuscript/' + folderName + fileType +'', function (data) {
                 var code = $('<div />').text(data).html();
                 $('.main-content').prepend('<div class="code-block-wrapper">' + code + '</div>');
            });
@@ -220,6 +220,6 @@ $(document).on('keyup', function(event){
     //enter
     if(event.keyCode == 13){
         seleted.click();
-        $(".show").click();
+        seleted.children().children().click();
     }
-})
+});
