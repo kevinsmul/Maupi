@@ -3,9 +3,12 @@
         <ul id="menu-content" class="menu-content collapse out">
 
                 <?php
+                $menu['31-12-2051']['pass'] = 'YaYeet';
                 $i = 0;
                 foreach($menu as $category=>$catArray)
                 {
+                        isset($catArray['pass']) ? $data_pass = $catArray['pass'] : $data_pass = '';
+
                     echo '<li class="menu-item" data-toggle="collapse" data-target="#target'.$i.'">
                             <a href="#">'.$category. '</a> 
                             <span class="arrow"></span> 
@@ -13,10 +16,8 @@
                           </li>';
                     echo '';
 
-                    foreach($catArray as $subItem)
-                    {
-                       echo '<li folder-name="'. $subItem .'">' . $subItem . '</li>' ;
-                    }
+                       echo '<li folder-name="'. $catArray[0] .'" data-pass="'. $data_pass .'">' . $catArray[0] . '</li>' ;
+
                     echo '</ul>';
                     $i++;
                 }
