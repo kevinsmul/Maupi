@@ -40,5 +40,4 @@
 
 <script type="text/javascript">
     var jsonData = <?php echo json_encode($structure); ?>;
-    console.log(jsonData);
 </script>

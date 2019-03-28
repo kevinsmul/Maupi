@@ -3,11 +3,11 @@
         <ul id="menu-content" class="menu-content collapse out">
 
                 <?php
-                $menu['31-12-2051']['pass'] = 'YaYeet';
+                $menu['Locked']['pass'] = '123';
                 $i = 0;
                 foreach($menu as $category=>$catArray)
                 {
-                        isset($catArray['pass']) ? $data_pass = $catArray['pass'] : $data_pass = '';
+                    isset($catArray['pass']) ? $data_pass = $catArray['pass'] : $data_pass = '';
 
                     echo '<li class="menu-item" data-toggle="collapse" data-target="#target'.$i.'">
                             <a href="#">'.$category. '</a> 
@@ -21,7 +21,7 @@
                     echo '</ul>';
                     $i++;
                 }
-            ?>
+            ?> 
             <li class="menu-item menu-overview active seleted"> <a href="#"><i class="fa fa-gift fa-lg"></i> Radar</a></li>
         </ul>
     </div>

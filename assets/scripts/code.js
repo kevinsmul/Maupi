@@ -84,12 +84,12 @@ $(document).ready(function() {
         $('.menu-overview').removeClass('active');
     }
     function buildCodeBlocks(category, filter,folderName, password){
+
         if (password.length > 0) {
-            return false;
+            unlocking();
+            return false;                   /*                                                          eyyyy rakker hiero*/
         }
 
-        console.log('buildcodeblocks');
-        console.log(jsonData);
         var data = jsonData[category][folderName];
 
         switch(filter) {
@@ -138,7 +138,6 @@ $(document).ready(function() {
                 if (httpRequest.readyState === 4) {
                     if (httpRequest.status === 200) {
                         var scriptContent = httpRequest.responseText;
-                        console.log(scriptContent);
                         $('.main-content').prepend('<div class="code-block-wrapper">' + scriptContent + '</div>');
                     }
                 }
@@ -163,8 +162,7 @@ $(document).ready(function() {
         for(var key in jsonData)
         {
             var category = key;
-            console.log(category);
-            var categoryCode = '<div class="col-12 pt-5"> <h1 class="code-title d-none">'+ category + '</h1></div><hr/> <div class="row" id="'+ category + '"></div>';
+            var categoryCode = '<div class="col-12 pt-4"> <h1 class="code-title d-none">'+ category + '</h1></div><hr/> <div class="row" id="'+ category + '"></div>';
             $('.main-content').append(categoryCode);
 
             var moduleLength = Object.keys(jsonData[key]).length;
@@ -180,53 +178,57 @@ $(document).ready(function() {
                     colClass = "col-6";
                 }
 
-
-                //No image
-                var imgPath = "";
-                //Set image path if not undefined
-                if (typeof jsonData[key][k]['screenshot'] !== 'undefined'){
-                    //Screenshot count
-                    var count = Object.keys(jsonData[key][k]['screenshot']).length;
-                    if(count == 1) {
-                        var screenshot = jsonData[key][k]['screenshot'];
-                    }
-                    else{
-                        var screenshot = jsonData[key][k]['screenshot'][0];
-                    }
-                    var imgPath = encodeURI('code/' + category + '/' + moduleName + '/screenshot/' + screenshot + '');
-                }
-
-                var moduleCode = '<div class="spinner"></div><div id="near" class="point"></div><div id="far" class="point"></div><div id="immediate" class="point"></div><div id="unknown" class="point"></div><div class="spins spin1">  <div class="label">immediate</div></div><div class="spins spin2">  </div><div class="spins spin3"></div><div align="center"></div>';
+                var moduleCode = '<div class="spinner"></div><div id="near" class="point"></div><div id="far" class="point"></div><div id="immediate" class="point"></div><div id="unknown" class="point"></div> <div id="extra1" class="point"></div> <div id="extra2" class="point"></div> <div id="extra3" class="point"></div> <div id="extra4" class="point"></div> <div id="extra5" class="point"></div> <div id="extra6" class="point"></div> <div id="extra7" class="point"></div> <div id="extra8" class="point"></div> <div id="extra9" class="point"></div> <div class="spins spin1">  <div class="label">immediate</div></div><div class="spins spin2">  </div><div class="spins spin3"></div><div align="center"></div>';
                 $('#' + category).append(moduleCode);
             }
 
         }
     }
 
+    // movement for the submenu
+    $(document).on('keyup', function(event){
+        var seleted = $('.seleted');
+        //down arrow
+        if(event.keyCode == 40){
+            var index = seleted.index();
+            if(index==6){
+                return;
+            }
+            seleted.removeClass('seleted').next().addClass('seleted');
+        }
+        //up arrow
+        if(event.keyCode == 38){
+            var index = seleted.index();
+            if(index==0){
+                return;
+            }
+            seleted.removeClass('seleted').prev().addClass('seleted');
+        }
+        //enter
+        if(event.keyCode == 13){
+            seleted.click();
+            seleted.children().children().click();
+        }
+    });
+
+    function unlocking(){
+        $(document).on('keyup', function(e){
+
+            var slotnumber = 1;
+            //trigger it
+            if(e.keyCode == 70){
+                console.log(slotnumber);
+
+            }
+            //adds one to it
+            if(e.keyCode == 83){
+                var kerel = slotnumber+1;
+                console.log(kerel);
+                return kerel;
+            }
+        });
+    };
+    
     init();
 });
 
-$(document).on('keyup', function(event){
-    var seleted = $('.seleted');
-    //down arrow
-    if(event.keyCode == 40){
-        var index = seleted.index();
-        if(index==5){
-            return;
-        }
-        seleted.removeClass('seleted').next().addClass('seleted');
-    }
-    //up arrow
-    if(event.keyCode == 38){
-        var index = seleted.index();
-        if(index==0){
-            return;
-        }
-        seleted.removeClass('seleted').prev().addClass('seleted');
-    }
-    //enter
-    if(event.keyCode == 13){
-        seleted.click();
-        seleted.children().children().click();
-    }
-});

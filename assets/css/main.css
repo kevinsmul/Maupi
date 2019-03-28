@@ -223,6 +223,50 @@ code{
     -moz-animation:blink 1.75s step-end 0.25s infinite;
     -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
+#extra1 {
+    box-shadow: 15px -55px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra2 {
+    box-shadow: -20px 55px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra3 {
+    box-shadow: 15px 65px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra4 {
+    box-shadow: -100px 105px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra5 {
+    box-shadow: 120px -55px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra6 {
+    box-shadow: 70px 75px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra7 {
+    box-shadow: -20px -15px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra8 {
+    box-shadow: -120px -105px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}#extra9 {
+    box-shadow: 120px -55px 1px #f2ff00;
+    -moz-animation:blink 1.75s step-end 0.25s infinite;
+    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
 
 .spins{
   border:1px solid #27b645;
@@ -259,6 +303,7 @@ code{
 .spin3:before {
   color: #27b645;
   content:'Unknown' ;
+  margin-left:230px;
 }
 
 @-moz-keyframes spin {
