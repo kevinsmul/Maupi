@@ -87,8 +87,9 @@ $(document).ready(function() {
 
         if (password.length > 0) {
             unlocking();
-            return false;                   /*                                                          eyyyy rakker hiero*/
-        }
+            console.log(password);
+            return false;
+        };
 
         var data = jsonData[category][folderName];
 
@@ -213,19 +214,37 @@ $(document).ready(function() {
 
     function unlocking(){
         $(document).on('keyup', function(e){
-
             var slotnumber = 1;
-            //trigger it
-            if(e.keyCode == 70){
-                console.log(slotnumber);
+            var hiddenVal = $("#hiddenVal")
+            var counter = parseInt(hiddenVal.val());
+            var theCount = $(".theCount");
 
+            if(e.keyCode == 70){                                //this is button F
+                if (counter > 0) {
+                    counter--;
+                    hiddenVal.val(counter);
+                    theCount.text(counter);
+                };
+            };
+
+            if(e.keyCode == 83){                                 //this is button S            
+                if (counter < 9) {
+                    counter++;
+                    hiddenVal.val(counter);
+                    theCount.text(counter);
+                };
+            };
+
+            if(event.keyCode == 68){                             //this is button D
+
+            var index = theCount.index();
+            console.log(index);
+            if(index == 6){
+                theCount.removeClass('theCount').prev().prev().prev().addClass('theCount');
+                
             }
-            //adds one to it
-            if(e.keyCode == 83){
-                var kerel = slotnumber+1;
-                console.log(kerel);
-                return kerel;
-            }
+                theCount.removeClass('theCount').next().addClass('theCount');
+            };
         });
     };
     
