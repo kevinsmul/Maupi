@@ -3,7 +3,7 @@
         <ul id="menu-content" class="menu-content collapse out">
 
                 <?php
-                $menu['Locked']['pass'] = '0123';
+                $menu['Locked']['pass'] = '1234';
                 $i = 0;
                     foreach($menu as $category=>$catArray)
                     {

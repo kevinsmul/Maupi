@@ -83,13 +83,16 @@ $(document).ready(function() {
 
         $('.menu-overview').removeClass('active');
     }
-    function buildCodeBlocks(category, filter,folderName, password){
+    function buildCodeBlocks(category, filter,folderName, password,codetry){
 
-        if (password.length > 0) {
-            unlocking();
-            console.log(password);
+        if (password.length > 0 || codetry != password) {
+            unlocking(password);
+            console.log("password is fout" +password);
             return false;
-        };
+        }
+        else{
+            console.log("je kan er in");
+        }   
 
         var data = jsonData[category][folderName];
 
@@ -212,7 +215,7 @@ $(document).ready(function() {
         }
     });
 
-    function unlocking(){
+    function unlocking(password){
         $(document).on('keyup', function(e){
             var slotnumber = 1;
             var hiddenVal = $("#hiddenVal")
@@ -238,10 +241,16 @@ $(document).ready(function() {
             if(event.keyCode == 68){                             //this is button D
 
             var index = theCount.index();
-            console.log(index);
             if(index == 6){
                 theCount.removeClass('theCount').prev().prev().prev().addClass('theCount');
-                
+                //copy numbers and stop this
+                var codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
+                if (password === codetry) {
+                    return;
+                }
+                else{
+                    console.log("wrong code:" +codetry);
+                }
             }
                 theCount.removeClass('theCount').next().addClass('theCount');
             };
