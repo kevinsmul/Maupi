@@ -4,6 +4,10 @@ $(document).ready(function() {
     var folderName = $('.menu-list').find('.active').attr('folder-name');
     var faIcon = "fa-code";
 
+    //sounds to play
+    var test = new Audio();
+    test.src = "assets/audio/test.mp3";
+
     function init(){
         //Init highlight js ( style code blocks )
         $('pre code').each(function (i, block) {
@@ -169,7 +173,7 @@ $(document).ready(function() {
 
     function moduleOverview(){
         clearContent();
-
+        basemovement();
         //Disable filter buttons for overview
         $('.filters').hide();
         for(var key in jsonData)
@@ -198,40 +202,43 @@ $(document).ready(function() {
         }
     }
 
-    // movement for the submenu
-    $(document).on('keyup', function(event){
-        var seleted = $('.seleted');
-        //down arrow
-        if(event.keyCode == 40){
-            var index = seleted.index();
-            if(index==6){
-                return;
+    function basemovement(){
+        // movement for the submenu
+        $(document).on('keyup', function(event){
+            var seleted = $('.seleted');
+            //down arrow
+            if(event.keyCode == 40){
+                var index = seleted.index();
+                if(index==6){
+                    return;
+                }
+                seleted.removeClass('seleted').next().addClass('seleted');
             }
-            seleted.removeClass('seleted').next().addClass('seleted');
-        }
-        //up arrow
-        if(event.keyCode == 38){
-            var index = seleted.index();
-            if(index==0){
-                return;
+            //up arrow
+            if(event.keyCode == 38){
+                var index = seleted.index();
+                if(index==0){
+                    return;
+                }
+                seleted.removeClass('seleted').prev().addClass('seleted');
             }
-            seleted.removeClass('seleted').prev().addClass('seleted');
-        }
-        //enter
-        if(event.keyCode == 13){
-            seleted.click();
-            seleted.children().children().click();
-        }
-    });
+            //enter
+            if(event.keyCode == 13){
+                seleted.click();
+                seleted.children().children().click();
+            }
+        });
+    };  
+
 
     function unlocking(password, codetry){
-        $(document).on('keyup', function(e){
+        $(document).on('keyup', function(event){
             var slotnumber = 1;
             var hiddenVal = $("#hiddenVal")
             var counter = parseInt(hiddenVal.val());
             var theCount = $(".theCount");
 
-            if(e.keyCode == 70){                                //this is button F
+            if(event.keyCode == 70){                                //this is button F
                 if (counter > 0) {
                     counter--;
                     console.log("min een");
@@ -240,7 +247,7 @@ $(document).ready(function() {
                 };
             };
 
-            if(e.keyCode == 83){                                 //this is button S            
+            if(event.keyCode == 83){                                 //this is button S            
                 if (counter < 9) {
                     counter++;
                     console.log("plus een");
@@ -251,23 +258,26 @@ $(document).ready(function() {
 
             if(event.keyCode == 68){                             //this is button D
 
-            var index = theCount.index();
-            if(index == 6){
-                theCount.removeClass('theCount').prev().prev().prev().addClass('theCount');
-                //copy numbers and stop this
-                var codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
-                if (password === codetry) {
-                	$('.seleted').children().children().click();
-                    buildCodeBlocks(codetry);
+                var index = theCount.index();
+                if(index == 6){
+                    theCount.removeClass('theCount').prev().prev().prev().addClass('theCount');
+                    //copy numbers and stop this
+                    var codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
+                    if (password === codetry) {
+                    	$('.seleted').children().children().click();
+                        //test.play(); to play sounds when he delivers them
+                        basemovement();
+                        buildCodeBlocks(codetry);
+                    }
+                    else{
+                    	console.log("stop");
+                    }
                 }
-                else{
-                	console.log("stop");
-                }
-            }
                 theCount.removeClass('theCount').next().addClass('theCount');
             };
         });
     };
+    
     
     init();
 });
