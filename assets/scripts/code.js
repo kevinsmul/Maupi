@@ -32,7 +32,7 @@ $(document).ready(function() {
         var filter = $('.navbar-nav').find('.active').attr('filter');
 
         if(filter !== 'ss') {
-            buildCodeBlocks(category, filter, folderName, password);
+            checkiflocked(category, filter, folderName, password);
         }
         else{
             buildPreview(category, folderName);
@@ -62,7 +62,7 @@ $(document).ready(function() {
         var category = $('.menu-content').find('.menu-item.active > a').text();
 
         if(filter !== 'ss'){
-            buildCodeBlocks(category, filter, folderName, password);
+            checkiflocked(category, filter, folderName, password);
         }
         else{
             buildPreview(category, folderName);
@@ -83,16 +83,25 @@ $(document).ready(function() {
 
         $('.menu-overview').removeClass('active');
     }
-    function buildCodeBlocks(category, filter,folderName, password,codetry){
+    function checkiflocked(category, filter,folderName, password,codetry){
 
-        if (password.length > 0 || codetry != password) {
-            unlocking(password);
-            console.log("password is fout" +password);
-            return false;
+    	if (password.length > 0) {
+    		var codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
+        	if (codetry == password) {
+        		buildCodeBlocks(category, filter, folderName, password);
+        	}
+        	else{
+	            unlocking(password, codetry);
+	            return false;
+	        }
         }
+
         else{
-            console.log("je kan er in");
-        }   
+            buildCodeBlocks(category, filter, folderName, password);
+        }
+
+    }
+    function buildCodeBlocks(category, filter,folderName, password){
 
         var data = jsonData[category][folderName];
 
@@ -215,7 +224,7 @@ $(document).ready(function() {
         }
     });
 
-    function unlocking(password){
+    function unlocking(password, codetry){
         $(document).on('keyup', function(e){
             var slotnumber = 1;
             var hiddenVal = $("#hiddenVal")
@@ -225,6 +234,7 @@ $(document).ready(function() {
             if(e.keyCode == 70){                                //this is button F
                 if (counter > 0) {
                     counter--;
+                    console.log("min een");
                     hiddenVal.val(counter);
                     theCount.text(counter);
                 };
@@ -233,6 +243,7 @@ $(document).ready(function() {
             if(e.keyCode == 83){                                 //this is button S            
                 if (counter < 9) {
                     counter++;
+                    console.log("plus een");
                     hiddenVal.val(counter);
                     theCount.text(counter);
                 };
@@ -246,10 +257,11 @@ $(document).ready(function() {
                 //copy numbers and stop this
                 var codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
                 if (password === codetry) {
-                    return;
+                	$('.seleted').children().children().click();
+                    buildCodeBlocks(codetry);
                 }
                 else{
-                    console.log("wrong code:" +codetry);
+                	console.log("stop");
                 }
             }
                 theCount.removeClass('theCount').next().addClass('theCount');
