@@ -3,6 +3,7 @@ $(document).ready(function() {
     var filter = "ss";
     var folderName = $('.menu-list').find('.active').attr('folder-name');
     var faIcon = "fa-code";
+    var useLockNavs = false;
 
     //sounds to play
     var test = new Audio();
@@ -89,15 +90,18 @@ $(document).ready(function() {
     }
     function checkiflocked(category, filter,folderName, password,codetry){
 
-    	if (password.length > 0) {
-    		var codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
-        	if (codetry == password) {
-        		buildCodeBlocks(category, filter, folderName, password);
-        	}
-        	else{
-	            unlocking(password, codetry);
-	            return false;
-	        }
+        if (password.length > 0) {
+            useLockNavs = true;
+            var codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
+            if (codetry == password) {
+                useLockNavs = false;
+                buildCodeBlocks(category, filter, folderName, password);
+            }
+            else{
+                useLockNavs = true;
+                unlocking(password, codetry);
+                return false;
+            }
         }
 
         else{
@@ -205,6 +209,10 @@ $(document).ready(function() {
     function basemovement(){
         // movement for the submenu
         $(document).on('keyup', function(event){
+            if (useLockNavs) {
+                return false;
+            }
+
             var seleted = $('.seleted');
             //down arrow
             if(event.keyCode == 40){
@@ -232,13 +240,18 @@ $(document).ready(function() {
 
 
     function unlocking(password, codetry){
-        $(document).on('keyup', function(event){
-            var slotnumber = 1;
-            var hiddenVal = $("#hiddenVal")
-            var counter = parseInt(hiddenVal.val());
-            var theCount = $(".theCount");
 
-            if(event.keyCode == 70){                                //this is button F
+        $(document).on('keyup', function(event){
+            if (!useLockNavs) {
+                return false;
+            }
+
+            let slotnumber = 1;
+            let hiddenVal = $("#hiddenVal");
+            let counter = parseInt(hiddenVal.val());
+            let theCount = $(".theCount");
+
+            if(event.keyCode == 40){
                 if (counter > 0) {
                     counter--;
                     console.log("min een");
@@ -247,7 +260,7 @@ $(document).ready(function() {
                 };
             };
 
-            if(event.keyCode == 83){                                 //this is button S            
+            if(event.keyCode == 38){
                 if (counter < 9) {
                     counter++;
                     console.log("plus een");
@@ -256,21 +269,23 @@ $(document).ready(function() {
                 };
             };
 
-            if(event.keyCode == 68){                             //this is button D
+            if(event.keyCode == 13){
 
-                var index = theCount.index();
+                let index = theCount.index();
                 if(index == 6){
                     theCount.removeClass('theCount').prev().prev().prev().addClass('theCount');
                     //copy numbers and stop this
-                    var codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
+                    let codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
                     if (password === codetry) {
-                    	$('.seleted').children().children().click();
+                        useLockNavs = false;
+                        $('.seleted').children().children().click();
                         //test.play(); to play sounds when he delivers them
-                        basemovement();
                         buildCodeBlocks(codetry);
                     }
                     else{
-                    	console.log("stop");
+                        useLockNavs = false;
+                        console.log("stop");
+                        window.location.reload();
                     }
                 }
                 theCount.removeClass('theCount').next().addClass('theCount');
@@ -281,4 +296,3 @@ $(document).ready(function() {
     
     init();
 });
-
