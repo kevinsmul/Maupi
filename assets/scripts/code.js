@@ -8,7 +8,7 @@ $(document).ready(function() {
     //sounds to play
     var test = new Audio();
     test.src = "assets/audio/test.mp3";
-
+    basemovement(); 
     function init(){
         //Init highlight js ( style code blocks )
         $('pre code').each(function (i, block) {
@@ -177,7 +177,6 @@ $(document).ready(function() {
 
     function moduleOverview(){
         clearContent();
-        basemovement();
         //Disable filter buttons for overview
         $('.filters').hide();
         for(var key in jsonData)
@@ -278,6 +277,7 @@ $(document).ready(function() {
                     let codetry = $("#count1").text() + $("#count2").text() + $("#count3").text() + $("#count4").text();
                     if (password === codetry) {
                         useLockNavs = false;
+                        $( ".lock" ).toggleClass('unlocked');
                         $('.seleted').children().children().click();
                         //test.play(); to play sounds when he delivers them
                         buildCodeBlocks(codetry);

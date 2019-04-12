@@ -23,11 +23,15 @@
                     }
                 ?> 
 
-                <span id="count1" class="theCount">-</span>
-                <span id="count2">-</span>
-                <span id="count3">-</span>
-                <span id="count4">-</span>
+                <span id="count1" class="theCount"></span>
+                <span id="count2"></span>
+                <span id="count3"></span>
+                <span id="count4"></span>
                 <input type="hidden" id="hiddenVal" value="0">
+                
+                <span class="lockbox">
+                    <span class="lock"></span>
+                </span>
 
             <li class="menu-item menu-overview active seleted"> <a href="#"><i class="fa fa-gift fa-lg"></i> Radar</a></li>
         </ul>
