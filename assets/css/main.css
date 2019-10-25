@@ -203,7 +203,7 @@ code{
   -webkit-animation:spin 4.0s linear infinite;
 }
 
-.#near{
+#near{
     box-shadow: -60px 50px 1px #f2ff00;
     -moz-animation:blink 1.75s step-end 0.25s infinite;
     -webkit-animation:blink 1.75s step-end 0.25s infinite;
@@ -219,61 +219,143 @@ code{
     -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #unknown {
-    box-shadow: 20px -150px 1px #f2ff00;
+    box-shadow: 20px -100px 1px #f2ff00;
     -moz-animation:blink 1.75s step-end 0.25s infinite;
     -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #extra1 {
-    box-shadow: 15px -55px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+  box-shadow: 15px -55px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #extra2 {
-    box-shadow: -20px 55px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+  box-shadow: -20px 55px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #extra3 {
-    box-shadow: 15px 65px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+  box-shadow: 15px 65px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #extra4 {
-    box-shadow: -100px 105px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+  box-shadow: -100px 105px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #extra5 {
-    box-shadow: 120px -55px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+  box-shadow: 120px -55px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #extra6 {
-    box-shadow: 70px 75px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+  box-shadow: 70px 75px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #extra7 {
-    box-shadow: -20px -15px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+  box-shadow: -20px -15px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 #extra8 {
-    box-shadow: -120px -105px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+  box-shadow: -120px -105px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }#extra9 {
-    box-shadow: 120px -55px 1px #f2ff00;
-    -moz-animation:blink 1.75s step-end 0.25s infinite;
-    -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+box-shadow: 120px -80px 1px #f2ff00;
+-moz-animation:blink 1.75s step-end 0.25s infinite;
+-webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}#extra10 {
+  box-shadow: 150px -70px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra11 {
+  box-shadow: -80px 50px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra12 {
+  box-shadow: -40px 145px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra13 {
+  box-shadow: 15px 65px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra14 {
+  box-shadow: -90px 117px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra15 {
+  box-shadow: 40px -95px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra16 {
+  box-shadow: 170px 65px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra17 {
+  box-shadow: -20px -3px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra18 {
+  box-shadow: -140px -125px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}#extra19 {
+box-shadow: 190px -40px 1px #f2ff00;
+-moz-animation:blink 1.75s step-end 0.25s infinite;
+-webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}#extra20 {
+  box-shadow: -165px -129px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra21 {
+  box-shadow: -241px -201px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra22 {
+  box-shadow: 174px -131px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra23 {
+  box-shadow: -93px 36px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra24 {
+  box-shadow: -11px 132px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra25 {
+  box-shadow: 23px -70px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
+}
+#extra26 {
+  box-shadow: 161px 98px 1px #f2ff00;
+  -moz-animation:blink 1.75s step-end 0.25s infinite;
+  -webkit-animation:blink 1.75s step-end 0.25s infinite;  
 }
 
 .spins{
   border:1px solid #27b645;
 } 
 .spin1{
-  width:100px;
-  height:100px;
+  width:150px;
+  height:150px;
 }
 .spin1 .label {
   position:relative;
@@ -284,26 +366,26 @@ code{
 .spin1:before {
   color: #27b645;
   content:"near";
-  margin-left:95px;
+  margin-left:130px;
 }
 .spin2{
-  width:180px;
-  height:180px;
+  width:230px;
+  height:230px;
 }
 .spin2:before {
   color: #27b645;
   content:'far';
-  margin-left:160px;
+  margin-left:200px;
 
 }
 .spin3{
-  width:260px;
-  height:260px;
+  width:310px;
+  height:310px;
 }
 .spin3:before {
   color: #27b645;
   content:'Unknown' ;
-  margin-left:230px;
+  margin-left:270px;
 }
 
 @-moz-keyframes spin {

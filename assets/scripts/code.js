@@ -5,6 +5,11 @@ $(document).ready(function() {
     var faIcon = "fa-code";
     var useLockNavs = false;
 
+    //sets the dots on the map
+    if(dotmap == undefined){
+        var dotmap = Math.floor(Math.random() * 4);
+    }
+
     //sounds to play
     var test = new Audio();
     test.src = "assets/audio/test.mp3";
@@ -174,9 +179,10 @@ $(document).ready(function() {
         }
 
     }
-
+    
     function moduleOverview(){
         clearContent();
+        
         //Disable filter buttons for overview
         $('.filters').hide();
         for(var key in jsonData)
@@ -186,6 +192,7 @@ $(document).ready(function() {
             $('.main-content').append(categoryCode);
 
             var moduleLength = Object.keys(jsonData[key]).length;
+            
 
             for(var k in jsonData[key])
             {   var moduleName = k;
@@ -197,11 +204,23 @@ $(document).ready(function() {
                 if(moduleLength == 1){
                     colClass = "col-6";
                 }
-
-                var moduleCode = '<div class="spinner"></div><div id="near" class="point"></div><div id="far" class="point"></div><div id="immediate" class="point"></div><div id="unknown" class="point"></div> <div id="extra1" class="point"></div> <div id="extra2" class="point"></div> <div id="extra3" class="point"></div> <div id="extra4" class="point"></div> <div id="extra5" class="point"></div> <div id="extra6" class="point"></div> <div id="extra7" class="point"></div> <div id="extra8" class="point"></div> <div id="extra9" class="point"></div> <div class="spins spin1">  <div class="label">immediate</div></div><div class="spins spin2">  </div><div class="spins spin3"></div><div align="center"></div>';
-                $('#' + category).append(moduleCode);
+                if (dotmap == 0) {
+                    var moduleCode = '<div class="spinner"></div><div id="near" class="point"></div><div id="far" class="point"></div><div id="immediate" class="point"></div><div id="unknown" class="point"></div> <div id="extra1" class="point"></div> <div id="extra2" class="point"></div> <div id="extra3" class="point"></div> <div id="extra4" class="point"></div> <div id="extra5" class="point"></div> <div id="extra6" class="point"></div> <div id="extra7" class="point"></div> <div id="extra8" class="point"></div> <div id="extra9" class="point"></div> <div class="spins spin1">  <div class="label">immediate</div></div><div class="spins spin2">  </div><div class="spins spin3"></div><div align="center"></div>';
+                    $('#' + category).append(moduleCode);
+                } else if(dotmap == 1) {
+                    var moduleCode = '<div class="spinner"></div><div id="near" class="point"></div><div id="far" class="point"></div><div id="immediate" class="point"></div><div id="unknown" class="point"></div> <div id="extra10" class="point"></div> <div id="extra11" class="point"></div> <div id="extra12" class="point"></div> <div id="extra13" class="point"></div> <div id="extra14" class="point"></div> <div id="extra15" class="point"></div> <div id="extra16" class="point"></div> <div id="extra17" class="point"></div> <div id="extra18" class="point"></div> <div id="extra19" class="point"></div> <div class="spins spin1">  <div class="label">immediate</div></div><div class="spins spin2">  </div><div class="spins spin3"></div><div align="center"></div>';
+                    $('#' + category).append(moduleCode);
+                }  else if(dotmap == 2) {
+                    var moduleCode = '<div class="spinner"></div><div id="near" class="point"></div><div id="far" class="point"></div><div id="immediate" class="point"></div><div id="unknown" class="point"></div> <div id="extra20" class="point"> </div><div id="extra21" class="point"></div> <div id="extra22" class="point"></div> <div id="extra23" class="point"></div> <div id="extra24" class="point"></div> <div id="extra25" class="point"></div> <div id="extra26" class="point"></div> <div id="extra27" class="point"></div><div class="spins spin1">  <div class="label">immediate</div></div><div class="spins spin2">  </div><div class="spins spin3"></div><div align="center"></div>';
+                    $('#' + category).append(moduleCode);
+                } else if(dotmap == 3) {
+                    var moduleCode = '<div class="spinner"></div><div id="extra10" class="point"></div> <div id="extra11" class="point"></div> <div id="extra12" class="point"></div> <div id="extra13" class="point"></div> <div id="extra14" class="point"></div> <div id="extra15" class="point"></div> <div id="extra16" class="point"></div> <div id="extra20" class="point"> </div><div id="extra21" class="point"></div> <div id="extra22" class="point"></div> <div id="extra23" class="point"></div>  <div id="extra24" class="point"></div> <div id="extra25" class="point"></div> <div id="extra26" class="point"></div> <div id="extra27" class="point"></div><div class="spins spin1">  <div class="label">immediate</div></div><div class="spins spin2">  </div><div class="spins spin3"></div><div align="center"></div>';
+                    $('#' + category).append(moduleCode);
+                } else{
+                    var moduleCode = '<div class="spinner"></div><div id="near" class="point"></div><div id="far" class="point"></div><div id="immediate" class="point"></div><div id="unknown" class="point"></div> <div id="extra1" class="point"></div> <div id="extra2" class="point"></div> <div id="extra3" class="point"></div> <div id="extra4" class="point"></div> <div id="extra5" class="point"></div> <div id="extra6" class="point"></div> <div id="extra7" class="point"></div> <div id="extra8" class="point"></div> <div id="extra9" class="point"></div> <div id="extra10" class="point"></div> <div id="extra12" class="point"></div> <div id="extra13" class="point"></div> <div id="extra14" class="point"></div> <div id="extra15" class="point"></div> <div id="extra16" class="point"></div> <div id="extra17" class="point"></div> <div id="extra18" class="point"></div> <div id="extra19" class="point"></div> <div class="spins spin1">  <div class="label">immediate</div></div><div class="spins spin2">  </div><div class="spins spin3"></div><div align="center"></div>';
+                    $('#' + category).append(moduleCode);
+                }
             }
-
         }
     }
 
